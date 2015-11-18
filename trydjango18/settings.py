@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Email setting
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'surfer.manoj@gmail.com'
+EMAIL_HOST_PASSWORD = 'colleges'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+#If you use email using gmail for a long time, you need to unlock the gmail captcha
 
 # Application definition
 

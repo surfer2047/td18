@@ -1,6 +1,17 @@
 from django import forms
 from .models import SignUp
 
+
+class ContactForm(forms.Form): #no ModelForm
+	full_name = forms.CharField(required=False)
+	email = forms.EmailField()
+	message = forms.CharField()
+
+	def clean_email(self):
+		"""This function will override the cleaned_data defined in views.py"""
+		email = self.cleaned_data.get('email')
+		return email
+
 class SignUpForm(forms.ModelForm):
 
 	class Meta:

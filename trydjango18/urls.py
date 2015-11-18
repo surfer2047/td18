@@ -18,6 +18,7 @@ from django.contrib import admin
 from newsletter import views
 
 urlpatterns = [
-	url(r'^$', views.home, name="home"),
+	url(r'^$', 'newsletter.views.home', name="home"),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^contact/$', 'newsletter.views.contact', name="home"),
 ]
