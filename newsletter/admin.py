@@ -1,12 +1,16 @@
 from django.contrib import admin
 from .models import SignUp
-from .forms import SingUpForm
+from .forms import SignUpForm
+
+# class SignUpAdmin(admin.ModelAdmin):
+# 	list_display = ['full_name', 'email', 'timestamp', 'updated']
+# 	class Meta:
+# 		form = SignUpForm
 
 class SignUpAdmin(admin.ModelAdmin):
-	list_display = ['full_name', 'email', 'timestamp', 'updated']
-	# fields = ['email'] #Used to order the forms, can be done through the meta class using forms
-	class Meta:
-		model = SignUp
-		form = SingUpForm
+    list_display = ['full_name', 'email', 'timestamp', 'updated']
+    form = SignUpForm
+    class Meta:
+    	model = SignUp
 
 admin.site.register(SignUp, SignUpAdmin)
