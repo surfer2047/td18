@@ -39,12 +39,16 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = (
+    #django core apps,
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Third party apps
+    'crispy_forms',
+    #my apps
     'newsletter',
 )
 
@@ -120,3 +124,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/var/www/xtermnepal.com/media/'
 #PROTECTED_MEDIA
 #PROTECTED_ROOT see theses stuff.
+
+#bootstrap crispy form 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
