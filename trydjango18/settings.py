@@ -109,5 +109,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+##static url also follow the pattern of app/static/app directory method
+STATIC_ROOT = '/var/www/xtermnepal.com/static/'
 
-STATICFILE_DIRS = (os.path.join(BASE_DIR, 'assets'))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),
+        ) #assets is the development collection, while static_root is the production collection.
+    
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/www/xtermnepal.com/media/'
+#PROTECTED_MEDIA
+#PROTECTED_ROOT see theses stuff.

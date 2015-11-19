@@ -1,11 +1,16 @@
-{{title}}
+{% extends 'base.html' %}
 
-<form method="POST" action="">
-	{% csrf_token %}
-	{{form.as_p}}
-	<input type="submit", name="submit", value="SignUp">
+{%block head_title %} Welcome | {{block.super}} {% endblock head_title %}
+{%block jumbotron %}
+	{{block.super}}
+{%endblock jumbotron %}
+      
+{% block content %}
+	{{title}}
+	<form method="POST" action="">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit", name="submit", value="SignUp">
+	</form>
+{% endblock content %}
 
-	 
-</form>
-
-{{form.as_p}}
