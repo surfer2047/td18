@@ -8,9 +8,9 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
-build/
-develop-eggs/
+env/*
+build/*
+develop-eggs/*
 dist/
 downloads/
 eggs/
@@ -59,9 +59,9 @@ docs/_build/
 target/
 
 #virtualenv
-bin/
-include/
-lib/
-local/
+bin/*
+include/*
+lib/*
+local/*
 
 
