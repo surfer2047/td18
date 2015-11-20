@@ -1,0 +1,35 @@
+body {
+  min-height: 1000px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+  background-color: #2C678C;
+  color: #FFF;
+}
+
+.navbar-default{
+	color: #FFF;
+	background-color: #2C678C;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #FFF;
+}
+
+.navbar-default .navbar-brand{
+	color: #FFF;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+	color: #FEF;
+}
+
+body {
+	padding-top: 70px;
+}
+
+.navbar-default
+{
+	background-color:#2C678C;
+}

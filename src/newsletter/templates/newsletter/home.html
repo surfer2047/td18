@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{%block head_title %} Welcome | {{block.super}} {% endblock head_title %}
+{%block jumbotron %}
+	{% if request.user.is_authenticated and emails %}
+		<div class="row">
+			<div class="col-md-6 col-sm-offset-3">
+				<p class="lead"> You are logged in now </p>	
+				<h1>Suscribed Members</h1>
+				<ul class="list-group">
+					<li class="list-group-item">Name &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;Email Address &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Suscribed </li>
+					{% for email in emails %}	
+						<li class="list-group-item">{{ forloop.counter}}.  {{email.full_name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{email.email}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{email.timestamp | timesince}} ago </li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		
+	{% else %}
+		<div class="jumbotron" style="background-color: #2C678C">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8" style="color: #FFF">
+						<h1>Learning Django</h1>
+				        <p>Develop Django powered website, while learning Django. Learn django free by reading the source code on github</p>
+				        <p>
+				          <a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}" role="button"> Join Us&raquo;</a>
+				        </p>
+					</div><!-- end col-md-8 -->
+					<div class="col-sm-4 col-xs-12 col-sm-12 img-rounded">
+						<img height="262px" class="img-responsive img-rounded" src="{% static 'img/opensource.jpg' %}">
+					</div><!-- end col-md-4 -->
+				</div>
+			</div>
+	 	</div>
+	 {% endif %}
+{%endblock jumbotron %}
+      
+{% block content %}
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead text-center">Django &amp; Bootstrap</p><hr>
+			<img  height="262px" class="img img-responsive img-rounded" src="{% static 'img/django.jpg' %}">
+			<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="col-md-3 text-center">
+			<p class="lead">Created for Starters</p><hr>
+			<img height="262px" class="img img-responsive img-rounded" src="{% static 'img/startup.png' %}">
+			<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="col-md-3">
+			<p class="lead text-center">Always Opensource</p><hr>
+			
+			<img height="262px" class="img-responsive img-rounded" src="{% static 'img/opensource.jpg' %}">
+			<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	{% if not request.user.is_authenticated %}
+		<div class="col-md-3">
+			<p class="lead custom">Suscribe Now</p>
+			<hr>
+			<form method="POST" action="">
+				{% csrf_token %}
+				{{form | crispy }}
+				<input  class="btn btn-primary" type="submit", name="submit", value="SignUp">
+			</form>
+		</div>
+	{% endif %}
+	</div>
+{% endblock content %}
+
+	
